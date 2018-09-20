@@ -1,6 +1,6 @@
 <?php 
-	use App\Administradores;
-	$administradores = Administradores::all();
+	use App\Estudiantes;
+	$estudiantes = Estudiantes::all();
 ?>
 
 <!DOCTYPE HTML>
@@ -165,7 +165,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</script>
 		<!-- /script-for sticky-nav -->
 <!--inner block start here-->	<div class="portlet-grid-page">
-		<h2>Administradores</h2>
+		<h2>Estudiantes</h2>
 	</div>
 <!--market updates updates-->
 <!--market updates end here-->
@@ -189,19 +189,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						    	<input type="text" class="form-control" id="nombre" name="nombre" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Correo: </label>
+								<label>Curso: </label>
 						    	<input type="text" class="form-control" id="correo" name="correo" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Direccion: </label>
-						    	<input type="text" class="form-control" id="direccion" name="direccion" required>
+								<label>Fecha de pago: </label>
+						    	<input type="date" class="form-control" id="direccion" name="direccion" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Telefono: </label>
-						    	<input type="text" class="form-control" id="telefono" name="telefono" required>
+								<label>Mora: </label>
+						    	<input type="number" class="form-control" id="telefono" name="telefono" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Fecha: </label>
+								<label>Fecha de ingreso: </label>
 						    	<input type="date" class="form-control" id="fecha" name="fecha" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
@@ -248,19 +248,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						    	<input type="text" class="form-control" id="nombre" name="nombre" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Correo: </label>
+								<label>Curso: </label>
 						    	<input type="text" class="form-control" id="correo" name="correo" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Direccion: </label>
-						    	<input type="text" class="form-control" id="direccion" name="direccion" required>
+								<label>Fecha de pago: </label>
+						    	<input type="date" class="form-control" id="direccion" name="direccion" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Telefono: </label>
-						    	<input type="text" class="form-control" id="telefono" name="telefono" required>
+								<label>Mora: </label>
+						    	<input type="number" class="form-control" id="telefono" name="telefono" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Fecha: </label>
+								<label>Fecha de ingreso: </label>
 						    	<input type="date" class="form-control" id="fecha" name="fecha" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
@@ -318,29 +318,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">+ Crear</button>
 	<br>
 	<br>
-		<label>Lista de administradores</label>
+		<label>Lista de Estudiantes</label>
 		<table class="table tab-border">	
 						<thead>
 							<td>No.</td>
-							<td>Estado</td>
+							<td>Curso</td>
 							<td>Nombre</td>
-							<td>Correo</td>
-							<td>Dirección</td>
-							<td>Telefono</td>
+							<td>Fecha de pago</td>
+							<td>Mora</td>
 							<td>Fecha ingreso</td>
+							<td>Estado</td>
 							<td>Editar</td>
 							<td>Eliminar</td>
 						</thead>
 			            <tbody>
-			            	<?php  foreach($administradores as $row): ?>
+			            	<?php  foreach($estudiantes as $row): ?>
 					        <tr data-id="<?=$row->id;?>">
 					        	<td><?=$row->id;?></td>
-					            <td><?=$row->estado;?></td>
+					            <td><?=$row->curso;?></td>
 					            <td><?=$row->nombre;?></td>
-					            <td><?=$row->correo;?></td>
-					            <td><?=$row->direccion;?></td>
-					            <td><?=$row->telefono;?></td>
-					            <td><?=$row->fecha;?></td>
+					            <td><?=$row->fecha_pago;?></td>
+					            <td><?=$row->mora;?></td>
+					            <td><?=$row->fecha_ingreso;?></td>
+					            <td><?=$row->estado;?></td>
 					            <td><button class="btn-info btn btn-lg btn-editar"  data-toggle="modal" data-target="#myModal2" data-id="<?=$row->id;?>">Editar</button></td>
 					            <td><button class="btn-danger btn btn-lg btn-eliminar" id="btn-eliminar" data-toggle="modal" data-target="#myModal3" data-id="<?=$row->id;?>">Eliminar</button></td>
 					        </tr>
@@ -375,7 +375,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        <li id="menu-home" ><a href="index.html"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
 		        <li><a href="#"><i class="fa fa-cogs"></i><span>Mantenimientos</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul>
-		          	<li><a href="administradores">Administradores</a></li>
+		          	<li><a href="Estudiantes">Estudiantes</a></li>
 		            <li><a href="catedraticos">Catedráticos</a></li>
 		            <li><a href="estudiantes">Estudiantes</a></li>		            
 		          </ul>
@@ -472,7 +472,7 @@ jQuery(document).ready(function($){
 		id = $(this).data("id");
 		console.log(id);
 		$.ajax({
-            url:        'admin/administradores/'+id,
+            url:        'admin/Estudiantes/'+id,
             type:       'GET',
         })
         .done(function(response){
@@ -497,7 +497,7 @@ jQuery(document).ready(function($){
 
 	$("#delete").on("click",function(){
 		$.ajax({
-            url:        'admin/administradores/'+id,
+            url:        'admin/Estudiantes/'+id,
             type:       'DELETE',
         })
         .done(function(response){
@@ -518,7 +518,7 @@ jQuery(document).ready(function($){
 	$("#registrar").on("click",function(){
 		console.log("entro");
 		$.ajax({
-            url:        'admin/administradores',
+            url:        'admin/Estudiantes',
             type:       'POST',
             dataType:   'json',
             data:       $('#form-crear').serialize()
@@ -542,7 +542,7 @@ jQuery(document).ready(function($){
 	$("#btn-editar").on("click",function(){
 		console.log("entro");
 		$.ajax({
-            url:        'admin/administradores/'+id,
+            url:        'admin/Estudiantes/'+id,
             type:       'PUT',
             dataType:   'json',
             data:       $('#form-editar').serialize()
