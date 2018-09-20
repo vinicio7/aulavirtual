@@ -165,7 +165,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</script>
 		<!-- /script-for sticky-nav -->
 <!--inner block start here-->	<div class="portlet-grid-page">
-		<h2 style="margin-left: 20px;">Administradores</h2>
+		<h2>Administradores</h2>
 	</div>
 <!--market updates updates-->
 <!--market updates end here-->

@@ -1,6 +1,6 @@
 <?php 
-	use App\Administradores;
-	$administradores = Administradores::all();
+	use App\Catedraticos;
+	$catedraticos = Catedraticos::all();
 ?>
 
 <!DOCTYPE HTML>
@@ -165,7 +165,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</script>
 		<!-- /script-for sticky-nav -->
 <!--inner block start here-->	<div class="portlet-grid-page">
-		<h2 style="margin-left: 20px;">Administradores</h2>
+		<h2 style="margin-left: 20px;">Catedraticos</h2>
 	</div>
 <!--market updates updates-->
 <!--market updates end here-->
@@ -178,7 +178,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title">Nuevo administrador</h4>
+	        <h4 class="modal-title">Nuevo catedratico</h4>
 	      </div>
 	      <div class="modal-body">
 	       <form id="form-crear" class="form"  method="post" enctype="multipart/form-data">
@@ -237,7 +237,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title">Editar administrador</h4>
+	        <h4 class="modal-title">Editar catedratico</h4>
 	      </div>
 	      <div class="modal-body">
 	       <form id="form-editar" class="form"  method="post" enctype="multipart/form-data">
@@ -296,12 +296,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title">Eliminar administrador</h4>
+	        <h4 class="modal-title">Eliminar catedratico</h4>
 	      </div>
 	      <div class="modal-body">
 	       <form id="form-crear" class="form"  method="post" enctype="multipart/form-data">
 			        <fieldset>
-						<h2>Esta seguro de eliminar este administrador?</h2>
+						<h2>Esta seguro de eliminar este catedratico?</h2>
 			        </fieldset>
 		        </form>
 	      </div>
@@ -318,7 +318,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">+ Crear</button>
 	<br>
 	<br>
-		<label>Lista de administradores</label>
+		<label>Lista de catedraticos</label>
 		<table class="table tab-border">	
 						<thead>
 							<td>No.</td>
@@ -332,7 +332,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<td>Eliminar</td>
 						</thead>
 			            <tbody>
-			            	<?php  foreach($administradores as $row): ?>
+			            	<?php  foreach($catedraticos as $row): ?>
 					        <tr data-id="<?=$row->id;?>">
 					        	<td><?=$row->id;?></td>
 					            <td><?=$row->estado;?></td>
@@ -472,7 +472,7 @@ jQuery(document).ready(function($){
 		id = $(this).data("id");
 		console.log(id);
 		$.ajax({
-            url:        'admin/administradores/'+id,
+            url:        'admin/catedraticos/'+id,
             type:       'GET',
         })
         .done(function(response){
@@ -497,7 +497,7 @@ jQuery(document).ready(function($){
 
 	$("#delete").on("click",function(){
 		$.ajax({
-            url:        'admin/administradores/'+id,
+            url:        'admin/catedraticos/'+id,
             type:       'DELETE',
         })
         .done(function(response){
@@ -518,7 +518,7 @@ jQuery(document).ready(function($){
 	$("#registrar").on("click",function(){
 		console.log("entro");
 		$.ajax({
-            url:        'admin/administradores',
+            url:        'admin/catedraticos',
             type:       'POST',
             dataType:   'json',
             data:       $('#form-crear').serialize()
@@ -542,7 +542,7 @@ jQuery(document).ready(function($){
 	$("#btn-editar").on("click",function(){
 		console.log("entro");
 		$.ajax({
-            url:        'admin/administradores/'+id,
+            url:        'admin/catedraticos/'+id,
             type:       'PUT',
             dataType:   'json',
             data:       $('#form-editar').serialize()

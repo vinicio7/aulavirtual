@@ -95,11 +95,12 @@ class AdministradoresController extends Controller
         try {
             $record = Administradores::find($id);
             if ($record) {
-                $record->descripcion  = $request->input('descripcion', $record->descripcion);
+                $record->nombre  = $request->input('nombre', $record->nombre);
                 $record->correo  = $request->input('correo', $record->correo);
                 $record->estado  = $request->input('estado', $record->estado);
                 $record->telefono  = $request->input('telefono', $record->telefono);
                 $record->direccion  = $request->input('direccion', $record->direccion);
+                $record->fecha  = $request->input('fecha', $record->fecha);
                 $record->save();
                 if ($record->save()) {
                     $this->status_code  = 200;
