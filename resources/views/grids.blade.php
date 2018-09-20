@@ -342,7 +342,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					            <td><?=$row->telefono;?></td>
 					            <td><?=$row->fecha;?></td>
 					            <td><button class="btn-info btn btn-lg" id="btn-editar" data-toggle="modal" data-target="#myModal2" data-id="<?=$row->id;?>">Editar</button></td>
-					            <td><button class="btn-danger btn btn-lg" id="btn-eliminar" data-toggle="modal" data-target="#myModal3" data-id="<?=$row->id;?>">Eliminar</button></td>
+					            <td><button class="btn-danger btn btn-lg btn-eliminar" id="btn-eliminar" data-toggle="modal" data-target="#myModal3" data-id="<?=$row->id;?>">Eliminar</button></td>
 					        </tr>
 						    <?php endforeach;?>
 	                    </tbody>
@@ -460,10 +460,15 @@ $(".sidebar-icon").click(function() {
             });
 
 jQuery(document).ready(function($){
+	var id = 0
+	$(".btn-eliminar").on("click",function(){
+		console.log("entro");
+		id = $(this).data("id");
+		console.log(id);
+	});
+
 	$("#delete").on("click",function(){
-		var id = $(this).data("id");
-		console.log($(this));
-		$.ajax({
+			$.ajax({
             url:        'admin/administradores/'+id,
             type:       'DELETE',
         })
