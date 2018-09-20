@@ -1,8 +1,8 @@
-<!--Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<?php 
+	use App\Administradores;
+	$administradores = Administradores::all();
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -13,25 +13,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="admin/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="admin/js/toastr.js" />
+	<link href="admin/css/toastr.css" rel="stylesheet">	
 <!-- Custom Theme files -->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="admin/css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <!--js-->
-<script src="js/jquery-2.1.1.min.js"></script> 
+<script src="admin/js/jquery-2.1.1.min.js"></script> 
 <!--icons-css-->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="admin/css/font-awesome.css" rel="stylesheet"> 
 <!--Google Fonts-->
 <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
 <!--static chart-->
-<script src="js/Chart.min.js"></script>
+<script src="admin/js/Chart.min.js"></script>
 <!--//charts-->
 <!-- geo chart -->
     <script src="//cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
     <script>window.modernizr || document.write('<script src="lib/modernizr/modernizr-custom.js"><\/script>')</script>
     <!--<script src="lib/html5shiv/html5shiv.js"></script>-->
      <!-- Chartinator  -->
-    <script src="js/chartinator.js" ></script>
+    <script src="admin/js/chartinator.js" ></script>
     <script type="text/javascript">
         jQuery(function ($) {
 
@@ -99,7 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--geo chart-->
 
 <!--skycons-icons-->
-<script src="js/skycons.js"></script>
+<script src="admin/js/skycons.js"></script>
 <!--//skycons-icons-->
 </head>
 <body>	
@@ -123,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">	
-												<span class="prfil-img"><img src="images/p5.png" alt=""> </span> 
+												<span class="prfil-img"><img src="admin/images/p5.png" alt=""> </span> 
 												<div class="user-name">
 													<p>Oscar Palala</p>
 													<span>Administrator</span>
@@ -168,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--market updates updates-->
 <!--market updates end here-->
 <!--mainpage chit-chating-->
-<div class="chit-chat-layer1">
+<div class="chit-chat-layer1" style="margin-left: 20px;">
 	<div id="myModal" class="modal fade" role="dialog">
 	  <div class="modal-dialog">
 
@@ -184,32 +186,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="row">
 							<div class="col-sm-6" style="margin-top: 10px">
 								<label>Nombre: </label>
-						    	<input type="text" class="form-control" id="descripcion" name="descripcion" required>
+						    	<input type="text" class="form-control" id="nombre" name="nombre" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
 								<label>Correo: </label>
-						    	<input type="text" class="form-control" id="descripcion" name="descripcion" required>
+						    	<input type="text" class="form-control" id="correo" name="correo" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
 								<label>Direccion: </label>
-						    	<input type="text" class="form-control" id="descripcion" name="descripcion" required>
+						    	<input type="text" class="form-control" id="direccion" name="direccion" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
 								<label>Telefono: </label>
-						    	<input type="text" class="form-control" id="descripcion" name="descripcion" required>
+						    	<input type="text" class="form-control" id="telefono" name="telefono" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
 								<label>Fecha: </label>
-						    	<input type="date" class="form-control" id="descripcion" name="descripcion" required>
+						    	<input type="date" class="form-control" id="fecha" name="fecha" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
 								<label>Estado: </label>
 								<br>
-						    	<select>
-						    		<option>
+						    	<select id="estado" name="estado">
+						    		<option value="1">
 						    			Activo
 						    		</option>
-						    		<option>
+						    		<option value="2">
 						    			Inactivo
 						    		</option>
 						    	</select>
@@ -220,7 +222,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        </form>
 	      </div>
 	      <div class="modal-footer">
-	      	<button type="button" class="btn btn-success" data-dismiss="modal">Registrar</button>
+	      	<button type="button" class="btn btn-success" data-dismiss="modal" id="registrar">Registrar</button>
 	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 	      </div>
 	    </div>
@@ -304,17 +306,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        </form>
 	      </div>
 	      <div class="modal-footer">
-	      	<button type="button" class="btn btn-success" data-dismiss="modal">Confirmar</button>
+	      	<button type="button" class="btn btn-success" data-dismiss="modal" id="delete">Confirmar</button>
 	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 	      </div>
 	    </div>
 
 	  </div>
 	</div>
-
+	<br>
+	<br>
 	<button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">+ Crear</button>
 	<br>
 	<br>
+		<label>Lista de administradores</label>
 		<table class="table tab-border">	
 						<thead>
 							<td>No.</td>
@@ -328,115 +332,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<td>Eliminar</td>
 						</thead>
 			            <tbody>
-	                        <tr class="read">
-	                            <td class="hidden-xs">
-	                                # 1
-	                            </td>
-	                            <td class="hidden-xs">
-	                                Activo
-	                            </td>
-	                            <td>
-	                                Juan Manuel Ortiz Luna
-	                            </td>
-	                            <td>
-	                            	correoprueba@gmail.com
-	                            </td>
-	                            <td>Ciudad</td>
-	                            <td>7777-7777</td>
-	                            <td>
-	                                14 marzo
-	                            </td>
-	                            <td><button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal2">|||</button></td>
-	                            <td><button type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal3">-</button></td>
-	                        </tr>
-	                        <tr class="read">
-	                            <td class="hidden-xs">
-	                                # 2
-	                            </td>
-	                            <td class="hidden-xs">
-	                                Inactivo
-	                            </td>
-	                            <td>
-	                                Luis Javier Peña 
-	                            </td>
-	                            <td>
-	                            	correoprueba@gmail.com
-	                            </td><td>
-	                                Ciudad
-	                            </td>
-	                            <td>
-	                                7777-7777
-	                            </td>
-	                            <td>
-	                                11 marzo
-	                            </td>
-	                            <td><button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal2">|||</button></td>
-	                            <td><button type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal3">-</button></td>
-	                        </tr>
-	                        <tr class="read">
-	                            <td class="hidden-xs">
-	                                # 3
-	                            </td>
-	                            <td class="hidden-xs">
-	                                Activo
-	                            </td>
-	                            <td>
-	                                Juan Marlon Ortiz Mejia
-	                            </td>
-	                            <td>
-	                            	correoprueba@gmail.com
-	                            </td>
-	                            <td>Ciudad</td>
-	                            <td>7777-7777</td>
-	                            <td>
-	                                20 marzo
-	                            </td>
-	                            <td><button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal2">|||</button></td>
-	                            <td><button type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal3">-</button></td>
-	                        </tr>
-	                        <tr class="read">
-	                            <td class="hidden-xs">
-	                                # 4
-	                            </td>
-	                            <td class="hidden-xs">
-	                                Activo
-	                            </td>
-	                            <td>
-	                                Vinicio Josué López de León
-	                            </td>
-	                           <td>
-	                           	correoprueba@gmail.com
-	                           </td>
-	                           <td>Ciudad</td>
-	                           <td>7777-7777</td>
-	                            <td>
-	                                25 marzo
-	                            </td>
-	                            <td><button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal2">|||</button></td>
-	                            <td><button type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal3">-</button></td>
-	                        </tr>
-	                        <tr class="read">
-	                            <td class="hidden-xs">
-	                                # 5
-	                            </td>
-	                            <td class="hidden-xs">
-	                                Inactivo
-	                            </td>
-	                            <td>
-	                                Edgar Gerardo Ortiz De León
-	                            </td>
-	                            <td>
-	                            	correoprueba@gmail.com
-	                            </td>
-	                            <td>Ciudad</td>
-	                            <td>7777-7777</td>
-	                            <td>
-	                                26 marzo
-	                            </td>
-	                            <td><button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal2">|||</button></td>
-	                            <td><button type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal3">-</button></td>
-	                        </tr>
-	                       
+			            	<?php  foreach($administradores as $row): ?>
+					        <tr data-id="<?=$row->id;?>">
+					        	<td><?=$row->id;?></td>
+					            <td><?=$row->estado;?></td>
+					            <td><?=$row->nombre;?></td>
+					            <td><?=$row->correo;?></td>
+					            <td><?=$row->direccion;?></td>
+					            <td><?=$row->telefono;?></td>
+					            <td><?=$row->fecha;?></td>
+					            <td><button class="btn-info btn btn-lg" id="btn-editar" data-toggle="modal" data-target="#myModal2" data-id="<?=$row->id;?>">Editar</button></td>
+					            <td><button class="btn-danger btn btn-lg" id="btn-eliminar" data-toggle="modal" data-target="#myModal3" data-id="<?=$row->id;?>">Eliminar</button></td>
+					        </tr>
+						    <?php endforeach;?>
 	                    </tbody>
 	                </table>
 </div>
@@ -550,12 +458,61 @@ $(".sidebar-icon").click(function() {
   }               
                 toggle = !toggle;
             });
+
+jQuery(document).ready(function($){
+	$("#delete").on("click",function(){
+		var id = $(this).data("id");
+		console.log($(this));
+		$.ajax({
+            url:        'admin/administradores/'+id,
+            type:       'DELETE',
+        })
+        .done(function(response){
+            if (response.result) {
+                toastr['success'](response.message, 'Éxito');
+                $("#form-crear").modal('hide'); 
+               window.location.reload();
+            } else {
+                toastr['error'](response.message, 'Error');
+            }
+        })
+        .fail(function(response){
+            toastr['error'](response.message, 'Error');
+        })
+        .always(function(){ $('#loader').fadeOut(); })
+	});
+	$("#registrar").on("click",function(){
+		console.log("entro");
+		$.ajax({
+            url:        'admin/administradores',
+            type:       'POST',
+            dataType:   'json',
+            data:       $('#form-crear').serialize()
+        })
+        .done(function(response){
+            if (response.result) {
+                toastr['success'](response.message, 'Éxito');
+                $("#form-crear").modal('hide'); 
+               window.location.reload();
+            } else {
+                toastr['error'](response.message, 'Error');
+            }
+        })
+        .fail(function(response){
+            toastr['error'](response.message, 'Error');
+        })
+        .always(function(){ $('#loader').fadeOut(); })
+
+	});
+
+});
 </script>
 <!--scrolling js-->
-		<script src="js/jquery.nicescroll.js"></script>
-		<script src="js/scripts.js"></script>
+		<script src="admin/js/jquery.nicescroll.js"></script>
+		<script src="admin/js/scripts.js"></script>
 		<!--//scrolling js-->
-<script src="js/bootstrap.js"> </script>
+<script src="admin/js/bootstrap.js"> </script>
+<script src="admin/js/toastr.js"></script>
 <!-- mother grid end here-->
 </body>
 </html>                     

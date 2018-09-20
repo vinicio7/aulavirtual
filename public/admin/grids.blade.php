@@ -3,6 +3,11 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php 
+	use App\Administradores;
+	$administradores = Administradores::all();
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -14,6 +19,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="js/toastr.js" />
+	<link href="css/toastr.css" rel="stylesheet">	
 <!-- Custom Theme files -->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <!--js-->
@@ -163,12 +170,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</script>
 		<!-- /script-for sticky-nav -->
 <!--inner block start here-->	<div class="portlet-grid-page">
-		<h2>Cursos</h2>
+		<h2>Administradores</h2>
 	</div>
 <!--market updates updates-->
 <!--market updates end here-->
 <!--mainpage chit-chating-->
-<div class="chit-chat-layer1">
+<div class="chit-chat-layer1" style="margin-left: 20px;">
 	<div id="myModal" class="modal fade" role="dialog">
 	  <div class="modal-dialog">
 
@@ -176,7 +183,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title">Nuevo curso</h4>
+	        <h4 class="modal-title">Nuevo administrador</h4>
 	      </div>
 	      <div class="modal-body">
 	       <form id="form-crear" class="form"  method="post" enctype="multipart/form-data">
@@ -184,33 +191,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="row">
 							<div class="col-sm-6" style="margin-top: 10px">
 								<label>Nombre: </label>
-						    	<input type="text" class="form-control" id="descripcion" name="descripcion" required>
+						    	<input type="text" class="form-control" id="nombre" name="nombre" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Precio: </label>
-						    	<input type="number" class="form-control" id="descripcion" name="descripcion" required>
+								<label>Correo: </label>
+						    	<input type="text" class="form-control" id="correo" name="correo" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Fecha inicio: </label>
-						    	<input type="date" class="form-control" id="descripcion" name="descripcion" required>
+								<label>Direccion: </label>
+						    	<input type="text" class="form-control" id="direccion" name="direccion" required>
 							</div>
-							<div class="col-sm-6" style="margin-top: 15px">
-								<label>Duracion: </label><br>
-						    	<select>
-						    		<option>1 mes</option>
-						    		<option>2 mes</option>
-						    		<option>3 mes</option>
-						    		<option>6 mes</option>
-						    	</select>
+							<div class="col-sm-6" style="margin-top: 10px">
+								<label>Telefono: </label>
+						    	<input type="text" class="form-control" id="telefono" name="telefono" required>
 							</div>
-							<div class="col-sm-6" style="margin-top: 15px">
+							<div class="col-sm-6" style="margin-top: 10px">
+								<label>Fecha: </label>
+						    	<input type="date" class="form-control" id="fecha" name="fecha" required>
+							</div>
+							<div class="col-sm-6" style="margin-top: 10px">
 								<label>Estado: </label>
 								<br>
-						    	<select>
-						    		<option>
+						    	<select id="estado" name="estado">
+						    		<option value="1">
 						    			Activo
 						    		</option>
-						    		<option>
+						    		<option value="2">
 						    			Inactivo
 						    		</option>
 						    	</select>
@@ -221,7 +227,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        </form>
 	      </div>
 	      <div class="modal-footer">
-	      	<button type="button" class="btn btn-success" data-dismiss="modal">Registrar</button>
+	      	<button type="button" class="btn btn-success" data-dismiss="modal" id="registrar">Registrar</button>
 	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 	      </div>
 	    </div>
@@ -236,7 +242,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title">Editar estudiante</h4>
+	        <h4 class="modal-title">Editar administrador</h4>
 	      </div>
 	      <div class="modal-body">
 	       <form id="form-crear" class="form"  method="post" enctype="multipart/form-data">
@@ -247,7 +253,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						    	<input type="text" class="form-control" id="descripcion" name="descripcion" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>curso: </label>
+								<label>Correo: </label>
 						    	<input type="text" class="form-control" id="descripcion" name="descripcion" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
@@ -295,12 +301,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title">Eliminar estudiante</h4>
+	        <h4 class="modal-title">Eliminar administrador</h4>
 	      </div>
 	      <div class="modal-body">
 	       <form id="form-crear" class="form"  method="post" enctype="multipart/form-data">
 			        <fieldset>
-						<h2>Esta seguro de eliminar este estudiante?</h2>
+						<h2>Esta seguro de eliminar este administrador?</h2>
 			        </fieldset>
 		        </form>
 	      </div>
@@ -312,128 +318,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	  </div>
 	</div>
-
+	<br>
+	<br>
 	<button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">+ Crear</button>
 	<br>
 	<br>
+		<label>Lista de administradores</label>
 		<table class="table tab-border">	
 						<thead>
 							<td>No.</td>
-							<td>Nombre</td>
-							<td>Precio</td>
-							<td>Fecha inicio</td>
-							<td>Duracion</td>
 							<td>Estado</td>
+							<td>Nombre</td>
+							<td>Correo</td>
+							<td>Dirección</td>
+							<td>Telefono</td>
+							<td>Fecha ingreso</td>
 							<td>Editar</td>
 							<td>Eliminar</td>
 						</thead>
 			            <tbody>
-	                        <tr class="read">
-	                            <td class="hidden-xs">
-	                                # 1
-	                            </td>
-	                            <td class="hidden-xs">
-	                                Activo
-	                            </td>
-	                            <td>
-	                                Juan Manuel Ortiz Luna
-	                            </td>
-	                            <td>
-	                            	Microsoft Excel
-	                            </td>
-	                            <td>10-05-2018</td>
-	                            <td>Q.200.00</td>
-	                            <td>
-	                                14 marzo
-	                            </td>
-	                            <td><button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal2">|||</button></td>
-	                            <td><button type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal3">-</button></td>
-	                        </tr>
-	                        <tr class="read">
-	                            <td class="hidden-xs">
-	                                # 2
-	                            </td>
-	                            <td>
-	                                Luis Javier Peña 
-	                            </td>
-	                            <td>
-	                            	Microsoft Word
-	                            </td><td>
-	                                10-09-2018
-	                            </td>
-	                            <td>
-	                                Q.0.00
-	                            </td>
-	                            <td>
-	                                11 marzo
-	                            </td>
-	                            <td><button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal2">|||</button></td>
-	                            <td><button type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal3">-</button></td>
-	                        </tr>
-	                        <tr class="read">
-	                            <td class="hidden-xs">
-	                                # 3
-	                            </td>
-	                            <td class="hidden-xs">
-	                                Activo
-	                            </td>
-	                            <td>
-	                                Juan Marlon Ortiz Mejia
-	                            </td>
-	                            <td>
-	                            	Microsoft PowerPoint
-	                            </td>
-	                            <td>10-05-2018</td>
-	                            <td>Q.200.00</td>
-	                            <td>
-	                                20 marzo
-	                            </td>
-	                            <td><button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal2">|||</button></td>
-	                            <td><button type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal3">-</button></td>
-	                        </tr>
-	                        <tr class="read">
-	                            <td class="hidden-xs">
-	                                # 4
-	                            </td>
-	                            <td class="hidden-xs">
-	                                Activo
-	                            </td>
-	                            <td>
-	                                Vinicio Josué López de León
-	                            </td>
-	                           <td>
-	                           	Microsoft Excel
-	                           </td>
-	                           <td>10-09-2018</td>
-	                           <td>Q.0.00</td>
-	                            <td>
-	                                25 marzo
-	                            </td>
-	                            <td><button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal2">|||</button></td>
-	                            <td><button type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal3">-</button></td>
-	                        </tr>
-	                        <tr class="read">
-	                            <td class="hidden-xs">
-	                                # 5
-	                            </td>
-	                            <td class="hidden-xs">
-	                                Inactivo
-	                            </td>
-	                            <td>
-	                                Edgar Gerardo Ortiz De León
-	                            </td>
-	                            <td>
-	                            	Visual Basic
-	                            </td>
-	                            <td>10-05-2018</td>
-	                            <td>Q.200.00</td>
-	                            <td>
-	                                26 marzo
-	                            </td>
-	                            <td><button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal2">|||</button></td>
-	                            <td><button type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal3">-</button></td>
-	                        </tr>
-	                       
+			            	<?php  foreach($administradores as $row): ?>
+					        <tr>
+					            <td><?=$row;?></td>
+					            <td><?=$row['Year'];?></td>
+					            <td><?=$row['Value'];?></td>
+					        </tr>
+						    <?php endforeach;?>
 	                    </tbody>
 	                </table>
 </div>
@@ -547,12 +457,41 @@ $(".sidebar-icon").click(function() {
   }               
                 toggle = !toggle;
             });
+
+jQuery(document).ready(function($){
+
+	$("#registrar").on("click",function(){
+		
+		$.ajax({
+            url:        'administradores',
+            type:       'POST',
+            dataType:   'json',
+            data:       $('#form-crear').serialize()
+        })
+        .done(function(response){
+            if (response.result) {
+                toastr['success'](response.message, 'Éxito');
+                $("#form-crear").modal('hide'); 
+               window.location.reload();
+            } else {
+                toastr['error'](response.message, 'Error');
+            }
+        })
+        .fail(function(response){
+            toastr['error'](response.message, 'Error');
+        })
+        .always(function(){ $('#loader').fadeOut(); })
+
+	});
+
+});
 </script>
 <!--scrolling js-->
 		<script src="js/jquery.nicescroll.js"></script>
 		<script src="js/scripts.js"></script>
 		<!--//scrolling js-->
 <script src="js/bootstrap.js"> </script>
+<script src="js/toastr.js"></script>
 <!-- mother grid end here-->
 </body>
 </html>                     

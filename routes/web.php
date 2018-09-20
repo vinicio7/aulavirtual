@@ -14,9 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('administradores', function(){
+return view ('grids');
+});
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('administradores', 			'AdministradoresController');
-Route::resource('usuarios', 				'UsuariosController');
-Route::resource('estudiantes', 				'EstudiantesController');
+
+Route::prefix('admin')->group(function () {
+	
+	Route::resource('administradores', 			'AdministradoresController');
+	Route::resource('usuarios', 				'UsuariosController');
+	Route::resource('estudiantes', 				'EstudiantesController');
+});

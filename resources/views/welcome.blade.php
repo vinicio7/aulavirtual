@@ -71,8 +71,9 @@
                     @if (Auth::check())
                         <a href="{{ url('/home') }}">Inicio</a>
                     @else
-                        <a href="{{ url('/login') }}">Iniciar sesión</a>
-                        <a href="{{ url('/register') }}">Registrarse</a>
+                        <a href="{{ url('/login') }}">Administrador</a>
+                        <a href="{{ url('/login') }}">Catedraticos - Estudiantes</a>
+                        <!--<a href="{{ url('/register') }}">Registrarse</a>-->
                     @endif
                 </div>
             @endif
