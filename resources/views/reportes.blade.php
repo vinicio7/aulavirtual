@@ -1,6 +1,6 @@
 <?php 
-	use App\Estudiantes;
-	$estudiantes = Estudiantes::all();
+	use App\Cursos;
+	$cursos = Cursos::all();
 ?>
 
 <!DOCTYPE HTML>
@@ -165,7 +165,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</script>
 		<!-- /script-for sticky-nav -->
 <!--inner block start here-->	<div class="portlet-grid-page">
-		<h2>Estudiantes</h2>
+		<h2 style="margin-left: 20px;">Cursos</h2>
 	</div>
 <!--market updates updates-->
 <!--market updates end here-->
@@ -178,7 +178,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title">Nuevo administrador</h4>
+	        <h4 class="modal-title">Nuevo curso</h4>
 	      </div>
 	      <div class="modal-body">
 	       <form id="form-crear" class="form"  method="post" enctype="multipart/form-data">
@@ -189,20 +189,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						    	<input type="text" class="form-control" id="nombre" name="nombre" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Curso: </label>
-						    	<input type="text" class="form-control" id="curso" name="curso" required>
+								<label>Catedratico: </label>
+						    	<input type="text" class="form-control" id="correo" name="correo" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Fecha de pago: </label>
-						    	<input type="date" class="form-control" id="fecha_pago" name="fecha_pago" required>
+								<label>Horario: </label>
+						    	<input type="text" class="form-control" id="direccion" name="direccion" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Mora: </label>
-						    	<input type="number" class="form-control" id="mora" name="mora" required>
+								<label>Fecha inicio: </label>
+						    	<input type="text" class="form-control" id="telefono" name="telefono" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Fecha de ingreso: </label>
-						    	<input type="date" class="form-control" id="fecha_ingreso" name="fecha_ingreso" required>
+								<label>Costo: </label>
+						    	<input type="date" class="form-control" id="fecha" name="fecha" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
 								<label>Estado: </label>
@@ -248,20 +248,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						    	<input type="text" class="form-control" id="nombre" name="nombre" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Curso: </label>
-						    	<input type="text" class="form-control" id="curso" name="curso" required>
+								<label>Correo: </label>
+						    	<input type="text" class="form-control" id="correo" name="correo" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Fecha de pago: </label>
-						    	<input type="date" class="form-control" id="fecha_pago" name="fecha_pago" required>
+								<label>Direccion: </label>
+						    	<input type="text" class="form-control" id="direccion" name="direccion" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Mora: </label>
-						    	<input type="number" class="form-control" id="mora" name="mora" required>
+								<label>Telefono: </label>
+						    	<input type="text" class="form-control" id="telefono" name="telefono" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
-								<label>Fecha de ingreso: </label>
-						    	<input type="date" class="form-control" id="fecha_ingreso" name="fecha_ingreso" required>
+								<label>Fecha: </label>
+						    	<input type="date" class="form-control" id="fecha" name="fecha" required>
 							</div>
 							<div class="col-sm-6" style="margin-top: 10px">
 								<label>Estado: </label>
@@ -315,34 +315,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<br>
 	<br>
-	<button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">+ Crear</button>
+	<button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal"> -> Exportar a excel</button><button type="button" style="margin-left: 10px;" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal"> -> Exportar a PDF</button>
+	<br>
+	<div class="col-sm-2">
+		<label>Curso</label>
+			<select class="form-control">
+				<option>Microsoft Excel 2018 I</option>
+				<option>Base de datos 2018 I</option>
+		</select>
+	</div>
+	<div class="col-sm-2">
+		<label>Alumno</label>
+			<select class="form-control">
+				<option>Jorge Osorio</option>
+				<option>David Argueta</option>
+		</select>
+	</div>
+	<div class="col-sm-2">
+		<label>Catedratico</label>
+			<select class="form-control">
+				<option>Juan Lopez</option>
+				<option>Ernesto Garcia</option>
+		</select>
+	</div>
+	<div class="col-sm-2">
+		<label>Año</label>
+			<select class="form-control">
+				<option>2018</option>
+				<option>2017</option>
+		</select>
+	</div>
+	<div class="col-sm-2" style="margin-top: 18px;">
+		<button type="button" style="margin-left: 10px;" class="btn btn-lg btn-info" data-toggle="modal" data-target="#myModal"> Filtrar</button>
+	</div>
 	<br>
 	<br>
-		<label>Lista de Estudiantes</label>
+	<br>
+		<label style="margin-top: 10px;">Lista de cursos</label>
 		<table class="table tab-border">	
 						<thead>
 							<td>No.</td>
-							<td>Curso</td>
 							<td>Nombre</td>
-							<td>Fecha de pago</td>
-							<td>Mora</td>
-							<td>Fecha ingreso</td>
-							<td>Estado</td>
-							<td>Editar</td>
-							<td>Eliminar</td>
+							<td>Alumno</td>
+							<td>Catedratico</td>
 						</thead>
 			            <tbody>
-			            	<?php  foreach($estudiantes as $row): ?>
+			            	<?php  foreach($cursos as $row): ?>
 					        <tr data-id="<?=$row->id;?>">
 					        	<td><?=$row->id;?></td>
-					            <td><?=$row->curso;?></td>
 					            <td><?=$row->nombre;?></td>
-					            <td><?=$row->fecha_pago;?></td>
-					            <td><?=$row->mora;?></td>
-					            <td><?=$row->fecha_ingreso;?></td>
-					            <td><?=$row->estado;?></td>
-					            <td><button class="btn-info btn btn-lg btn-editar"  data-toggle="modal" data-target="#myModal2" data-id="<?=$row->id;?>">Editar</button></td>
-					            <td><button class="btn-danger btn btn-lg btn-eliminar" id="btn-eliminar" data-toggle="modal" data-target="#myModal3" data-id="<?=$row->id;?>">Eliminar</button></td>
+					            <td><?=$row->correo;?></td>
+					            <td><?=$row->direccion;?></td>
+					           
 					        </tr>
 						    <?php endforeach;?>
 	                    </tbody>
@@ -375,7 +399,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        <li id="menu-home" ><a href="index.html"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
 		        <li><a href="#"><i class="fa fa-cogs"></i><span>Mantenimientos</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul>
-		          	<li><a href="Estudiantes">Estudiantes</a></li>
+		          	<li><a href="administradores">Administradores</a></li>
 		            <li><a href="catedraticos">Catedráticos</a></li>
 		            <li><a href="estudiantes">Estudiantes</a></li>		            
 		          </ul>
@@ -472,7 +496,7 @@ jQuery(document).ready(function($){
 		id = $(this).data("id");
 		console.log(id);
 		$.ajax({
-            url:        'admin/Estudiantes/'+id,
+            url:        'admin/administradores/'+id,
             type:       'GET',
         })
         .done(function(response){
@@ -480,11 +504,11 @@ jQuery(document).ready(function($){
             	console.log(response.records);
                 toastr['success'](response.message, 'Éxito');
                 $("#form-editar #nombre").val(response.records.nombre);
-                $("#form-editar #curso").val(response.records.curso);
-                $("#form-editar #fecha_ingreso").val(response.records.fecha_ingreso);
-				$("#form-editar #fecha_pago").val(response.records.fecha_pago);
+                $("#form-editar #correo").val(response.records.correo);
+                $("#form-editar #fecha").val(response.records.fecha);
+				$("#form-editar #direccion").val(response.records.direccion);
 				$("#form-editar #estado").val(response.records.estado);
-				$("#form-editar #mora").val(response.records.mora);
+				$("#form-editar #telefono").val(response.records.telefono);
 			} else {
                 toastr['error'](response.message, 'Error');
             }
@@ -497,7 +521,7 @@ jQuery(document).ready(function($){
 
 	$("#delete").on("click",function(){
 		$.ajax({
-            url:        'admin/Estudiantes/'+id,
+            url:        'admin/administradores/'+id,
             type:       'DELETE',
         })
         .done(function(response){
@@ -518,7 +542,7 @@ jQuery(document).ready(function($){
 	$("#registrar").on("click",function(){
 		console.log("entro");
 		$.ajax({
-            url:        'admin/Estudiantes',
+            url:        'admin/administradores',
             type:       'POST',
             dataType:   'json',
             data:       $('#form-crear').serialize()
@@ -542,7 +566,7 @@ jQuery(document).ready(function($){
 	$("#btn-editar").on("click",function(){
 		console.log("entro");
 		$.ajax({
-            url:        'admin/Estudiantes/'+id,
+            url:        'admin/administradores/'+id,
             type:       'PUT',
             dataType:   'json',
             data:       $('#form-editar').serialize()

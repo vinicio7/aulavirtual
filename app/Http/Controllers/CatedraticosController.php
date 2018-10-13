@@ -94,7 +94,7 @@ class CatedraticosController extends Controller
         try {
             $record = Catedraticos::find($id);
             if ($record) {
-                $record->descripcion  = $request->input('descripcion', $record->descripcion);
+                $record->nombre  = $request->input('nombre', $record->nombre);
                 $record->correo  = $request->input('correo', $record->correo);
                 $record->estado  = $request->input('estado', $record->estado);
                 $record->telefono  = $request->input('telefono', $record->telefono);

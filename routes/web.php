@@ -17,6 +17,15 @@ Route::get('/', function () {
 Route::get('administradores', function(){
 	return view ('grids');
 });
+Route::get('asignacion', function(){
+	return view ('asignacion');
+});
+Route::get('creacion', function(){
+	return view ('creacion');
+});
+Route::get('reportes', function(){
+	return view ('reportes');
+});
 Route::get('catedraticos', function(){
 	return view ('grids2');
 });
@@ -29,6 +38,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('admin')->group(function () {
 	
 	Route::resource('administradores', 			'AdministradoresController');
-	Route::resource('estudiantes', 				'EstudiantesController');
+	Route::resource('Estudiantes', 				'EstudiantesController');
 	Route::resource('catedraticos', 			'CatedraticosController');
 });

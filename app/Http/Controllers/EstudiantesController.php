@@ -31,14 +31,15 @@ class EstudiantesController extends Controller
     
     public function store(Request $request) {
         try {
-            $validacion = Estudiantes::where("correo", $request->input('correo'))->first();
+            $validacion = Estudiantes::where("nombre", $request->input('nombre'))->first();
             if (!$validacion) {
                 $record = Estudiantes::create([
                         'nombre'          => $request->input('nombre'),
-                        'correo'          => $request->input('correo'),
-                        'estado'          => $request->input('estado'),
-                        'direccion'       => $request->input('direccion'),
-                        'telefono'        => $request->input('telefono'),
+                        'curso'          => $request->input('curso'),
+                        'fecha_pago'          => $request->input('fecha_pago'),
+                        'mora'       => $request->input('mora'),
+                        'fecha_ingreso'        => $request->input('fecha_ingreso'),
+                        'estado'        => $request->input('estado'),
                     ]);
                 if ($record) {
                     $this->status_code = 200;
@@ -94,11 +95,12 @@ class EstudiantesController extends Controller
         try {
             $record = Estudiantes::find($id);
             if ($record) {
-                $record->descripcion  = $request->input('descripcion', $record->descripcion);
-                $record->correo  = $request->input('correo', $record->correo);
+                $record->nombre  = $request->input('nombre', $record->nombre);
+                $record->curso  = $request->input('curso', $record->curso);
                 $record->estado  = $request->input('estado', $record->estado);
-                $record->telefono  = $request->input('telefono', $record->telefono);
-                $record->direccion  = $request->input('direccion', $record->direccion);
+                $record->fecha_pago  = $request->input('fecha_pago', $record->fecha_pago);
+                $record->fecha_ingreso  = $request->input('fecha_ingreso', $record->fecha_ingreso);
+                $record->mora  = $request->input('mora', $record->mora);
                 $record->save();
                 if ($record->save()) {
                     $this->status_code  = 200;

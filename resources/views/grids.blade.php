@@ -382,8 +382,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        </li>
 		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-book nav_icon"></i><span>Cursos</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul id="menu-comunicacao-sub" >
-		          	<li id="menu-arquivos" ><a href="icons.html">Creación</a></li>
-		            <li id="menu-mensagens" style="width: 120px" ><a href="buttons.html">Asignación</a>		              
+		          	<li id="menu-arquivos" ><a href="creacion">Creación</a></li>
+		            <li id="menu-mensagens" style="width: 120px" ><a href="asignacion">Asignación</a>		              
 		            </li>
 		            <li id="menu-arquivos" ><a href="typography.html">Reportes</a></li>
 		            
